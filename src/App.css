@@ -12,6 +12,7 @@
 
 .shape-container {
   padding: 100px;
+  padding-top: 50px;
 }
 
 .input-field,
@@ -35,6 +36,10 @@ input[type='submit'] {
   cursor: pointer;
 }
 
+select {
+  margin-left: 10px;
+}
+
 .input-field:disabled,
 input[type='submit']:disabled {
   border: 1px solid #b3b3b3;
@@ -48,6 +53,10 @@ input[type='submit']:disabled {
   display: inline-block;
   transition: all 2s;
   position: relative;
+}
+
+.shape-name {
+  text-transform: uppercase;
 }
 
 .trapezoid,

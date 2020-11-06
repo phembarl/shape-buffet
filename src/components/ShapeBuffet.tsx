@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { shapeStyle } from '../helpers';
 import ShapeForm from './ShapeForm';
 
+interface ShapeState {
+  name: string;
+  length: string;
+  radius: string;
+  color: string;
+}
+
 const ShapeBuffet = () => {
   const initalState = {
     name: '',
@@ -18,13 +25,9 @@ const ShapeBuffet = () => {
     localStorage.shape = JSON.stringify(shape);
   }, [shape]);
 
-  const createShape = (shapeDetails: {
-    name: string;
-    length: string;
-    radius: string;
-  }) => {
-    const { name, length, radius } = shapeDetails;
-    setShape({ name, length, radius });
+  const createShape = (shapeDetails: ShapeState) => {
+    const { name, length, radius, color } = shapeDetails;
+    setShape({ name, length, radius, color });
   };
 
   const chosenShapeStyle = shapeStyle(shape);
@@ -33,10 +36,8 @@ const ShapeBuffet = () => {
     <div className="ShapeBuffet">
       <ShapeForm createShape={createShape} />
       <div className="shape-container">
-        <div
-          className={`shape ${shape.name}`}
-          style={{ ...chosenShapeStyle, backgroundColor: '' }}
-        ></div>
+        <div className={`shape ${shape.name}`} style={chosenShapeStyle}></div>
+        <h3 className="shape-name">{shape.name}</h3>
       </div>
     </div>
   );
