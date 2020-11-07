@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-interface Props {
+interface IProps {
   createShape: (shapeDetails: {
     name: string;
     length: string;
@@ -9,7 +9,7 @@ interface Props {
   }) => void;
 }
 
-const ShapeForm = ({ createShape }: Props) => {
+const ShapeForm = ({ createShape }: IProps) => {
   const [shapeName, setShapeName] = useState('select shape');
   const [length, setLength] = useState('');
   const [radius, setRadius] = useState('');
@@ -24,7 +24,7 @@ const ShapeForm = ({ createShape }: Props) => {
     setColor('');
   };
 
-  const roundShapes = ['circle', 'oval'];
+  const roundShapes = ['circle', 'oval', 'egg'];
   const nonRoundShapes = [
     'square',
     'rectangle',
@@ -39,13 +39,18 @@ const ShapeForm = ({ createShape }: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <select value={shapeName} onChange={e => setShapeName(e.target.value)}>
+      <select
+        value={shapeName}
+        onChange={e => setShapeName(e.target.value)}
+        data-testid="shape-select"
+      >
         <option value="select shape" disabled>
           Select Shape
         </option>
         <option value="circle">Circle</option>
-        <option value="square">Square</option>
         <option value="oval">Oval</option>
+        <option value="egg">Egg</option>
+        <option value="square">Square</option>
         <option value="rectangle">Rectangle</option>
         <option value="trapezoid">Trapezoid</option>
         <option value="parallelogram">Parallelogram</option>
