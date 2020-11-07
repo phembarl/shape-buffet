@@ -60,7 +60,11 @@ const ShapeForm = ({ createShape }: IProps) => {
         <option value="triangle-right">Triangle Right</option>
       </select>
 
-      <select value={color} onChange={e => setColor(e.target.value)}>
+      <select
+        value={color}
+        onChange={e => setColor(e.target.value)}
+        data-testid="color-select"
+      >
         <option value="" disabled>
           Default Color
         </option>
