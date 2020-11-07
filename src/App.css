@@ -64,9 +64,13 @@ input[type='submit']:disabled {
 .triangle-down,
 .triangle-left,
 .triangle-right {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .parallelogram {
   transform: skew(20deg);
+}
+
+.egg {
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
 }

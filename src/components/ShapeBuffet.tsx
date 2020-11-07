@@ -14,6 +14,7 @@ const ShapeBuffet = () => {
     name: '',
     length: '',
     radius: '',
+    color: '',
   };
 
   const [shape, setShape] = useState(() => {
@@ -36,7 +37,11 @@ const ShapeBuffet = () => {
     <div className="ShapeBuffet">
       <ShapeForm createShape={createShape} />
       <div className="shape-container">
-        <div className={`shape ${shape.name}`} style={chosenShapeStyle}></div>
+        <div
+          className={`shape ${shape.name}`}
+          style={{ ...chosenShapeStyle, backgroundColor: shape.color }}
+          data-testid="shape-div"
+        ></div>
         <h3 className="shape-name">{shape.name}</h3>
       </div>
     </div>

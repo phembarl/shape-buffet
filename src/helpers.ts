@@ -75,6 +75,10 @@ export const shapeStyle = (shape: {
       borderTop: `${Number(shape.length) / 2}px solid transparent`,
       borderBottom: `${Number(shape.length) / 2}px solid transparent`,
     },
+    egg: {
+      width: diameter,
+      height: `${Number(shape.radius) * 2 + 50}px`,
+    },
   };
 
   return shapeStyles[shape.name];
