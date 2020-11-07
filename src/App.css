@@ -3,6 +3,7 @@
   background-color: #202040;
   min-height: 100vh;
   color: #ffbd69;
+  overflow: scroll;
 }
 
 .title {
