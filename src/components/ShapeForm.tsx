@@ -5,7 +5,6 @@ interface IProps {
     name: string;
     length: string;
     radius: string;
-    color: string;
   }) => void;
 }
 
@@ -13,15 +12,13 @@ const ShapeForm = ({ createShape }: IProps) => {
   const [shapeName, setShapeName] = useState('select shape');
   const [length, setLength] = useState('');
   const [radius, setRadius] = useState('');
-  const [color, setColor] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    createShape({ name: shapeName, length, radius, color });
+    createShape({ name: shapeName, length, radius });
     setShapeName('select shape');
     setLength('');
     setRadius('');
-    setColor('');
   };
 
   const roundShapes = ['circle', 'oval', 'egg'];
@@ -58,20 +55,6 @@ const ShapeForm = ({ createShape }: IProps) => {
         <option value="triangle-down">Triangle Down</option>
         <option value="triangle-left">Triangle Left</option>
         <option value="triangle-right">Triangle Right</option>
-      </select>
-
-      <select
-        value={color}
-        onChange={e => setColor(e.target.value)}
-        data-testid="color-select"
-      >
-        <option value="" disabled>
-          Default Color
-        </option>
-        <option value="#e94560">Red</option>
-        <option value="#ffbd69">Yellow</option>
-        <option value="#29c7ac">Green</option>
-        <option value="#bc6ff1">Purple</option>
       </select>
 
       <input
