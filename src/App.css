@@ -6,19 +6,32 @@
   overflow: scroll;
 }
 
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
 .title {
   margin-top: 0;
   padding: 30px;
 }
 
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .shape-container {
-  padding: 100px;
   padding-top: 50px;
 }
 
 .input-field,
 input[type='submit'],
-select {
+select,
+.clear-btn,
+.toggle-picker {
   padding: 8px;
   border-radius: 10px;
   outline: none;
@@ -37,12 +50,44 @@ input[type='submit'] {
   cursor: pointer;
 }
 
+.clear-btn {
+  border: 1px solid #202040;
+  background-color: #e94560;
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  margin-left: 0.9em;
+}
+
+.toggle-picker {
+  border: 1px solid #202040;
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  margin-left: 0.9em;
+  background: #12c2e9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f64f59,
+    #c471ed,
+    #12c2e9
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f64f59,
+    #c471ed,
+    #12c2e9
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 select {
   margin-left: 10px;
 }
 
 .input-field:disabled,
-input[type='submit']:disabled {
+input[type='submit']:disabled,
+.clear-btn:disabled,
+.toggle-picker:disabled {
   border: 1px solid #b3b3b3;
   background-color: initial;
   color: #b3b3b3;
@@ -74,4 +119,23 @@ input[type='submit']:disabled {
 
 .egg {
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+.color-picker {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  .input-field {
+    display: block;
+    margin: 1em auto;
+  }
+
+  .controls {
+    display: initial;
+  }
+
+  .clear-btn {
+    margin: 1em auto;
+  }
 }
