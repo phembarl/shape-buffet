@@ -91,7 +91,7 @@ const ShapeBuffet = () => {
             History
           </option>
           {prevShapes.map(sh => (
-            <option value={sh.id}>
+            <option value={sh.id} key={uuid4()}>
               {sh.name} - {sh.length || sh.radius}
             </option>
           ))}
@@ -100,11 +100,13 @@ const ShapeBuffet = () => {
 
       <div className="container">
         {showPicker && (
-          <ColorPicker
-            color={pickerColor}
-            onChange={color => setPickerColor(color.hex)}
-            className="color-picker"
-          />
+          <div data-testid="color-picker">
+            <ColorPicker
+              color={pickerColor}
+              onChange={color => setPickerColor(color.hex)}
+              className="color-picker"
+            />
+          </div>
         )}
 
         <div className="shape-container">

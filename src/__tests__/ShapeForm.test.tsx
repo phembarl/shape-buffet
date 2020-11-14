@@ -69,13 +69,6 @@ test('inputs shape length', () => {
   expect(lengthInput).toHaveValue(50);
 });
 
-test('selects shape color', () => {
-  render(<ShapeForm {...props} />);
-  userEvent.selectOptions(screen.getByTestId('color-select'), '#e94560');
-
-  expect(screen.getByText('Red').selected).toBe(true);
-});
-
 test('submits form', () => {
   render(<ShapeForm {...props} />);
   const lengthInput = screen.getByPlaceholderText('Length');
